@@ -1,0 +1,14 @@
+<div class="card-container">
+    <ng-template ngFor let-item [ngForOf]="cardViewArr" let-i="index">
+        <div [id]="item._id" class="card" >
+            <div class="card-header">
+                <div class="card-image">
+                    <img [src]="item.host.host_thumbnail_url" alt="Image not found">
+                </div>
+                {{item.name}}
+            </div>
+            <p>{{item.summary}}</p>
+            <app-button [text]="button_text" (evClick)="delEmittedClick(item._id)"></app-button>
+        </div>
+    </ng-template>
+</div>

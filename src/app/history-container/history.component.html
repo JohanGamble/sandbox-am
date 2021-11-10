@@ -1,0 +1,7 @@
+<div id="{{inputHistoryContainer}}">
+    <ng-template ngFor let-item [ngForOf]="queryResults" let-i="index">
+        <li id="{{item.id}}" (click)="listItemClicked(item.id)">{{item.name}}
+            <app-button [text]="button_text" (evClick)="delEmittedClick(item.id)"></app-button>
+        </li>
+    </ng-template>
+</div>

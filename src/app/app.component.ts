@@ -1,33 +1,26 @@
 import { AfterViewInit, Component } from '@angular/core';
+import { processEnteredInput, ElementId } from 'sandbox-helper-functions';
 
-import { processEnteredInput } from 'sandbox-helper-functions';
-import * as inputIdentity from '../scripts/user_input_functions';
-import * as cef from '../scripts/card_effect_functions';
 @Component({
   selector: 'app-root',
-  template: `<div class="dmc0">
-  <div class="ql0">
-      <label>
-          <input id="{{inputFieldId}}" type="text" placeholder="..." class="if0" />
-      </label>
-      <div id="inputHistoryContainer"></div>
-  </div>
-  <div class="dc0"></div>
-</div>`,
-  styles: []
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.css']
 })
 export class AppComponent implements AfterViewInit {
-  inputFieldId: string = "input";
+  
   constructor() { }
+
+  elementId: ElementId = {
+    input_id: 'queryInput',
+    input_history_container_id: 'inputHistoryContainer',
+    div_dc0: 'dc0',
+    div_dp0: 'dp0', // Provided for future use
+    div_dbr0: 'dbr0', // Provided for future use
+    css_class_effect: 'bd'
+  }
+
   ngAfterViewInit(): void {
     /* External npm module */
-    processEnteredInput(this.inputFieldId);
-    /* Local Scripts */
-    this.loadExternalScripts();
-  }
-  
-  loadExternalScripts() {
-    cef.loadEffectsForEventListeners(this.inputFieldId);
-    inputIdentity.inputId(this.inputFieldId);
+    processEnteredInput(this.elementId);
   }
 }
