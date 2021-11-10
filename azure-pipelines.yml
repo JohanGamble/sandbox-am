@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 trigger:
-- dev_project_one_repo
+- dev_sandbox_am
 
 pool:
   vmImage: ubuntu-latest
