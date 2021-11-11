@@ -9,6 +9,7 @@ export class APIServerQuery {
     constructor(private configService: ConfigService, private notificationService: NotificationService) { }
 
     sendQueryRequest(value: string): void {
+        // {value} will be sent back to the server to be processed.
         this.configService.getRequest().subscribe((data: any) => {
             let sendResult;
             let x: ef.externfunc = new ef.externfunc(this.notificationService);
