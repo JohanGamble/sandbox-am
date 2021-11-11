@@ -23,6 +23,7 @@ export class CardViewComponent implements OnInit, OnDestroy {
       this.cardViewArr = value[0].results;
     });
     this.subscription = this.historyNotificationService.selectionAnnouncementStatus$.subscribe((value) => {
+      // values are not shown if one item is left in the list???
       this.cardViewArr = value;
     });
     this.button_text = "Delete Entry";
